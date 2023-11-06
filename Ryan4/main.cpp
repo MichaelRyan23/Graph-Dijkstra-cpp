@@ -1,3 +1,16 @@
+/********************************************************************
+*** NAME :          Michael Ryan
+*** CLASS :         CSc 300
+*** ASSIGNMENT :    4
+*** DUE DATE :      11/8/2023
+*** INSTRUCTOR :    GAMRADT 
+*********************************************************************
+*** DESCRIPTION : This assignment covers the idea of a BST. It goes over
+*** the various operations a BST can include, and how a BST is generally structured.
+*** Insertion, Removal, Search, Preorder traversal, inorder traversal, and postorder
+*** traversal all correspond with the BST algorithms. The BST is implemented
+*** with dynamically allocated nodes, and proper memory management is ensured.
+********************************************************************/
 #include "BST.h"
 #include <iostream>
 
