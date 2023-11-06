@@ -1,11 +1,11 @@
-output: main.o Tree.o
-	g++ -std=c++11 -o output main.o Tree.o
+output: main.o BST.o
+	g++ -std=c++11 -o output main.o BST.o
 
 main.o: main.cpp
 	g++ -std=c++11 -c main.cpp
 
-Tree.o: Tree.h Tree.cpp
-	g++ -std=c++11 -c Tree.cpp
+BST.o: BST.h BST.cpp
+	g++ -std=c++11 -c BST.cpp
 
 clean:
-	rm output main.o Tree.o
+	rm output main.o BST.o

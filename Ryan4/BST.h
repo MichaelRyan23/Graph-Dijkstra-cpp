@@ -1,7 +1,10 @@
 #pragma once
+
 typedef int Element;
+
 struct Node;
 typedef Node * NodePtr;
+
 struct Node {
     Element element;
     NodePtr left, right;
@@ -25,6 +28,7 @@ class BST {
     private:
 
         NodePtr root;
+        
         void copy(const NodePtr);
         void destroy(NodePtr &);
         void removeNode(NodePtr &);

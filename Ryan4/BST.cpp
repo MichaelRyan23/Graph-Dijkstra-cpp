@@ -40,6 +40,7 @@ NodePtr BST::search(const Element key) const {
 
 NodePtr BST::search(const NodePtr node, const Element key) const {
     if(node == nullptr) {
+        cout << "Element not found!" << endl;
         return nullptr;
     } else if(key == node->element) {
         return node;
@@ -56,42 +57,56 @@ void BST::remove(const Element key) {
 }
 
 // private recursive remove
-void BST::remove(NodePtr &node, const Element key) {
-    if(node == nullptr) {
+void BST::remove(NodePtr &rootNode, const Element key) {
+
+    if(rootNode == nullptr) {
         return;
     }
 
-    if(key < node->element) {
-        remove(node->left, key);
-    } else if(key > node->element) {
-        remove(node->right, key);
+    if(key < rootNode->element) {
+        remove(rootNode->left, key);
+    } else if(key > rootNode->element) {
+        remove(rootNode->right, key);
     } else {
-        removeNode(node);
+        removeNode(rootNode);
     }
 }
 
 // Handling node removal once node has been found
 void BST::removeNode(NodePtr &node) {
+
     if(node == nullptr) {
         return;
     }
 
+    // no children
     if(node->left == nullptr && node->right == nullptr) {
         delete node;
         node = nullptr;
-    } else if(node->left != nullptr && node->right == nullptr) {
+    } 
+    // left child only
+    else if(node->left != nullptr && node->right == nullptr) {
         NodePtr temp = node;
         node = node->left;
         delete temp;
-    } else if(node->left == nullptr && node->right != nullptr) {
+    } 
+    // right child only
+    else if(node->left == nullptr && node->right != nullptr) {
         NodePtr temp = node;
         node = node->right;
         delete temp;
-    } else {
-        NodePtr temp;
+    } 
+    // two children
+    else {
+        NodePtr temp = nullptr;
 
-        findMaxNode(temp, node->left);
+        findMaxNode(node->left, temp);
         
+        if(temp == nullptr) {
+            cout << "Max node in left subtree not found!" << endl;
+            return;
+        }
+
         node->element = temp->element;
 
         remove(node->left, temp->element);
@@ -145,6 +160,7 @@ void BST::postorderView(const NodePtr node) const {
 
 // recursive destroy
 void BST::destroy(NodePtr &node) {
+    
     if(node) {
         destroy(node->left);
         destroy(node->right);
@@ -154,18 +170,13 @@ void BST::destroy(NodePtr &node) {
 }
 
 // find maximum node on left subtree side
-void BST::findMaxNode(NodePtr &startingNode, NodePtr &maxNode) {
-    maxNode = startingNode;
-    NodePtr parentOfMax = nullptr;
+void BST::findMaxNode(NodePtr &maxNode, NodePtr &temp) {
 
-    while (maxNode->right != nullptr) {
-        parentOfMax = maxNode;
-        maxNode = maxNode->right;
-    }
-
-    if(parentOfMax != nullptr) {
-        parentOfMax->right = maxNode->left;
-        maxNode->left = nullptr;
+    if(maxNode->right == nullptr) {
+        temp = maxNode;
+        return;
+    } else {
+        findMaxNode(maxNode->right, temp);
     }
 }
 
