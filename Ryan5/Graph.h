@@ -15,8 +15,38 @@ using namespace std;
 class Graph {
 
     public:
+
+/********************************************************************
+*** FUNCTION <name of function> ***
+*********************************************************************
+*** DESCRIPTION : <general english description of the function> ***
+*** INPUT ARGS : 
+*** OUTPUT ARGS : 
+*** IN/OUT ARGS : 
+*** RETURN : 
+********************************************************************/
         explicit Graph(const string = "data.dat");
+
+/********************************************************************
+*** FUNCTION <name of function> ***
+*********************************************************************
+*** DESCRIPTION : <general english description of the function> ***
+*** INPUT ARGS : 
+*** OUTPUT ARGS : 
+*** IN/OUT ARGS : 
+*** RETURN : 
+********************************************************************/
         ~Graph();
+
+/********************************************************************
+*** FUNCTION <name of function> ***
+*********************************************************************
+*** DESCRIPTION : <general english description of the function> ***
+*** INPUT ARGS : 
+*** OUTPUT ARGS : 
+*** IN/OUT ARGS : 
+*** RETURN : 
+********************************************************************/
         void dijkstra();
 
     private:
