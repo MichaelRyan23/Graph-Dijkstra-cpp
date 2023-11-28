@@ -5,7 +5,11 @@
 *** DUE DATE :      11/29/2023
 *** INSTRUCTOR :    GAMRADT 
 *********************************************************************
-*** DESCRIPTION : <detailed english description of the current assignment> ***
+*** DESCRIPTION : This assignment creates and implements a graph ADT.
+*** The graph is represented by an adjacency matrix with weighted edges
+*** between the nodes. Along with this, Dijkstra's algorithm is used on
+*** said graph to calculate the shortest path possible from a user's starting
+*** node. 
 ********************************************************************/
 
 #include "Graph.h"

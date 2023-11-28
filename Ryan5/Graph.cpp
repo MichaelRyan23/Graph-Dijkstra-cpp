@@ -5,8 +5,10 @@
 *** DUE DATE :      11/29/2023
 *** INSTRUCTOR :    GAMRADT 
 *********************************************************************
-*** DESCRIPTION : <detailed english description of the abstract data type> ***
-*** <including supporting operations> ***
+*** DESCRIPTION : This implementation file implements the graph class,
+*** and includes operations for initalizing a graph from a data file,
+*** running Dijkstra's algorithm on said adjacency matrix with edges and
+*** their weights, and displays the shortest path result.
 ********************************************************************/
 
 #include "Graph.h"
@@ -16,22 +18,24 @@
 using namespace std;
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION Constructor
 *********************************************************************
-*** DESCRIPTION : <detailed english description of the function> ***
-*** INPUT ARGS : 
+*** DESCRIPTION : Constructs a graph by initializing it with data from
+*** a user file, using "data.dat" as default. Graph is an adjacency matrix
+*** INPUT ARGS : fileName
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
-*** RETURN :
+*** RETURN : 
 ********************************************************************/
 Graph::Graph(const string fileName) {
     setGraph(fileName);
 }
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION Destructor
 *********************************************************************
-*** DESCRIPTION : <detailed english description of the function> ***
+*** DESCRIPTION : Doesn't really get implemented in this case, but here 
+*** just in case for future use perhaps? 
 *** INPUT ARGS : 
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
@@ -40,9 +44,13 @@ Graph::Graph(const string fileName) {
 Graph::~Graph() {}
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION Dijkstra
 *********************************************************************
-*** DESCRIPTION : <detailed english description of the function> ***
+*** DESCRIPTION : Implements Dijkstra's algorithm to find the shortest
+*** from a user-specified starting onde. The function uses private operations
+*** to prompt user to enter an appropriate starting node, and then uses
+*** logic to calculate the shortest path to each node, displaying the results
+*** at the end and asking if the user want to run it again on the same graph.
 *** INPUT ARGS : 
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
@@ -113,6 +121,9 @@ unsigned short Graph::setStart() const {
     do {
         cout << "Enter the starting node: ";
         cin >> startNode;
+        if(startNode >= nodeCount || startNode < 0) {
+            cout << "Invalid start node!" << endl;
+        }
     } while(startNode >= nodeCount || startNode < 0);
     
     return startNode;

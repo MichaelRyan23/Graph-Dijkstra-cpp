@@ -5,8 +5,10 @@
 *** DUE DATE :      11/29/2023
 *** INSTRUCTOR :    GAMRADT 
 *********************************************************************
-*** DESCRIPTION : <general english description of the abstract data type> ***
-*** <including supporting operations> ***
+*** DESCRIPTION : This class helps represent a graph (adjacency matrix)
+*** along with the edges and their weights, and has operations supporting 
+*** Dijkstra's algorithm to find the shortest possible path in a user-asked 
+*** specification.
 ********************************************************************/
 #pragma once
 #include <iostream>
@@ -17,20 +19,21 @@ class Graph {
     public:
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION constructor
 *********************************************************************
-*** DESCRIPTION : <general english description of the function> ***
-*** INPUT ARGS : 
+*** DESCRIPTION : Creates a graph using data from a file, default file name
+*** being "data.dat"
+*** INPUT ARGS : fileName
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
-*** RETURN : 
+*** RETURN : object of graph class
 ********************************************************************/
         explicit Graph(const string = "data.dat");
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION Destructor
 *********************************************************************
-*** DESCRIPTION : <general english description of the function> ***
+*** DESCRIPTION : In this implementation, it doesn't really do anything
 *** INPUT ARGS : 
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
@@ -39,9 +42,11 @@ class Graph {
         ~Graph();
 
 /********************************************************************
-*** FUNCTION <name of function> ***
+*** FUNCTION Dijkstra
 *********************************************************************
-*** DESCRIPTION : <general english description of the function> ***
+*** DESCRIPTION : Implements Dijkstra's algorithm on a specific graph/
+*** adjacency matrix. Goes from a user-defined start node to the other nodes
+*** in the graph. 
 *** INPUT ARGS : 
 *** OUTPUT ARGS : 
 *** IN/OUT ARGS : 
